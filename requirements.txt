@@ -1,0 +1,5 @@
+tkinter
+schedule
+requests
+gspread
+oauth2client
