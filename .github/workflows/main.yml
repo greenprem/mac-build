@@ -25,18 +25,14 @@ jobs:
         pip install py2app
 
     - name: Build the macOS app
-      run: |
-        python setup.py py2app
+      run: python setup.py py2app
 
-    - name: Archive the app
+    - name: Archive the dist folder
       run: |
-        mkdir -p dist/macos
-        tree
-        mv dist/YourScript.app dist/macos/
-        zip -r dist/macos.zip dist/macos
+        zip -r dist.zip dist/
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
         name: macos-app
-        path: dist/macos.zip
+        path: dist.zip
